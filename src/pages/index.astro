@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: "Proyecto 1",
+    description: "Descripción breve del proyecto 1.",
+    link: "#",
+  },
+  {
+    title: "Proyecto 2",
+    description: "Descripción breve del proyecto 2.",
+    link: "#",
+  },
+  {
+    title: "Proyecto 3",
+    description: "Descripción breve del proyecto 3.",
+    link: "#",
+  },
+];
+---
+
+<BaseLayout>
+  <Header />
+  <Hero />
+
+  <section id="proyectos" class="container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold mb-8 text-center">Proyectos Destacados</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            link={project.link}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
